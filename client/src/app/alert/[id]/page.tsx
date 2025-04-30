@@ -22,7 +22,7 @@ export default function Page() {
 
   return (
     <div className="p-4">
-      <TaskAlertCompletion
+      {data && <TaskAlertCompletion
         taskID={data.taskId}
         alertID={data.alertId}
         isCompleted={data.isCompleted}
@@ -31,7 +31,8 @@ export default function Page() {
         note={data.notice}
         scoreMeasurement={data.scoreMeasurement}
         measurementID={data.measurementID}
-      />
+      /> }
+      
     </div>
   );
 }
