@@ -1,0 +1,15 @@
+
+                GO
+              CREATE FUNCTION SF_GetAllMeasurements()
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT * FROM Measurements
+);
+
+
+             
+     }
+  
+ 

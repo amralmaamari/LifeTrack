@@ -1,0 +1,174 @@
+
+                GO
+              CREATE PROCEDURE SP_AddNewChallenges
+(
+    @ChallengeID int OUTPUT,
+    @ArticleID int,
+    @Title nvarchar(100),
+    @Description nvarchar(100),
+    @DurationTimes int,
+    @TimesPerDay int,
+    @StartDate date,
+    @EndDate date,
+    @CreatedAt datetime,
+    @UpdatedAt datetime,
+    @UserID int
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        INSERT INTO Challenges (
+            ArticleID,
+            Title,
+            Description,
+            DurationTimes,
+            TimesPerDay,
+            StartDate,
+            EndDate,
+            CreatedAt,
+            UpdatedAt,
+            UserID
+        ) VALUES (
+            @ArticleID,
+            @Title,
+            @Description,
+            @DurationTimes,
+            @TimesPerDay,
+            @StartDate,
+            @EndDate,
+            @CreatedAt,
+            @UpdatedAt,
+            @UserID
+        );
+        SELECT @ChallengeID = SCOPE_IDENTITY();
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+        SET @ChallengeID = NULL;
+    END CATCH;
+END;
+
+
+                GO
+              CREATE PROCEDURE SP_DeleteChallenges
+(
+    @ChallengeID int
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        DELETE FROM Challenges WHERE ChallengeID = @ChallengeID;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH;
+END;
+ 
+
+                GO
+              CREATE PROCEDURE SP_GetChallengesInfoByID
+(
+    @ChallengeID int
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        select * FROM Challenges WHERE ChallengeID = @ChallengeID;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH;
+END;
+
+
+                GO
+              
+        CREATE PROCEDURE SP_IsChallengesExistsByChallengeID
+        (
+            @ChallengeID int
+        )
+        AS
+        BEGIN
+            SET NOCOUNT ON;
+            BEGIN TRY
+                IF EXISTS (SELECT 1 FROM Challenges WHERE ChallengeID = @ChallengeID)
+                BEGIN 
+                    RETURN 1;
+                END
+                ELSE
+                BEGIN
+                    RETURN 0;
+                END
+            END TRY
+            BEGIN CATCH
+                DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+                SELECT 
+                    @ErrorMessage = ERROR_MESSAGE(),
+                    @ErrorSeverity = ERROR_SEVERITY(),
+                    @ErrorState = ERROR_STATE();
+                RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+            END CATCH;
+        END;
+
+                GO
+              CREATE PROCEDURE SP_UpdateChallengesByID
+    @ChallengeID int,
+    @ArticleID int,
+    @Title nvarchar (100),
+    @Description nvarchar (100),
+    @DurationTimes int,
+    @TimesPerDay int,
+    @StartDate date,
+    @EndDate date,
+    @CreatedAt datetime,
+    @UpdatedAt datetime,
+    @UserID int  AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+    UPDATE Challenges
+    SET
+        ArticleID = @ArticleID,
+        Title = @Title,
+        Description = @Description,
+        DurationTimes = @DurationTimes,
+        TimesPerDay = @TimesPerDay,
+        StartDate = @StartDate,
+        EndDate = @EndDate,
+        CreatedAt = @CreatedAt,
+        UpdatedAt = @UpdatedAt,
+        UserID = @UserID    WHERE ChallengeID = @ChallengeID;
+    END TRY
+    BEGIN CATCH
+        SELECT
+            ERROR_NUMBER() AS ErrorNumber,
+            ERROR_STATE() AS ErrorState,
+            ERROR_SEVERITY() AS ErrorSeverity,
+            ERROR_PROCEDURE() AS ErrorProcedure,
+            ERROR_LINE() AS ErrorLine,
+            ERROR_MESSAGE() AS ErrorMessage;
+    END CATCH;
+END;
+
+                        
+     }
+ 
+ 

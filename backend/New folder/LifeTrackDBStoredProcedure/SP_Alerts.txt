@@ -1,0 +1,154 @@
+
+                GO
+              CREATE PROCEDURE SP_AddNewAlerts
+(
+    @AlertID int OUTPUT,
+    @TaskID int,
+    @MeasurementID int,
+    @ScoreMeasurement nvarchar(100),
+    @Notice nvarchar(100),
+    @DateAndTime datetime,
+    @IsCompleted bit
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        INSERT INTO Alerts (
+            TaskID,
+            MeasurementID,
+            ScoreMeasurement,
+            Notice,
+            DateAndTime,
+            IsCompleted
+        ) VALUES (
+            @TaskID,
+            @MeasurementID,
+            @ScoreMeasurement,
+            @Notice,
+            @DateAndTime,
+            @IsCompleted
+        );
+        SELECT @AlertID = SCOPE_IDENTITY();
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+        SET @AlertID = NULL;
+    END CATCH;
+END;
+
+
+                GO
+              CREATE PROCEDURE SP_DeleteAlerts
+(
+    @AlertID int
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        DELETE FROM Alerts WHERE AlertID = @AlertID;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH;
+END;
+ 
+
+                GO
+              CREATE PROCEDURE SP_GetAlertsInfoByID
+(
+    @AlertID int
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        select * FROM Alerts WHERE AlertID = @AlertID;
+    END TRY
+    BEGIN CATCH
+        DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH;
+END;
+
+
+                GO
+              
+        CREATE PROCEDURE SP_IsAlertsExistsByAlertID
+        (
+            @AlertID int
+        )
+        AS
+        BEGIN
+            SET NOCOUNT ON;
+            BEGIN TRY
+                IF EXISTS (SELECT 1 FROM Alerts WHERE AlertID = @AlertID)
+                BEGIN 
+                    RETURN 1;
+                END
+                ELSE
+                BEGIN
+                    RETURN 0;
+                END
+            END TRY
+            BEGIN CATCH
+                DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT;
+                SELECT 
+                    @ErrorMessage = ERROR_MESSAGE(),
+                    @ErrorSeverity = ERROR_SEVERITY(),
+                    @ErrorState = ERROR_STATE();
+                RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+            END CATCH;
+        END;
+
+                GO
+              CREATE PROCEDURE SP_UpdateAlertsByID
+    @AlertID int,
+    @TaskID int,
+    @MeasurementID int,
+    @ScoreMeasurement nvarchar (100),
+    @Notice nvarchar (100),
+    @DateAndTime datetime,
+    @IsCompleted bit  AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+    UPDATE Alerts
+    SET
+        TaskID = @TaskID,
+        MeasurementID = @MeasurementID,
+        ScoreMeasurement = @ScoreMeasurement,
+        Notice = @Notice,
+        DateAndTime = @DateAndTime,
+        IsCompleted = @IsCompleted    WHERE AlertID = @AlertID;
+    END TRY
+    BEGIN CATCH
+        SELECT
+            ERROR_NUMBER() AS ErrorNumber,
+            ERROR_STATE() AS ErrorState,
+            ERROR_SEVERITY() AS ErrorSeverity,
+            ERROR_PROCEDURE() AS ErrorProcedure,
+            ERROR_LINE() AS ErrorLine,
+            ERROR_MESSAGE() AS ErrorMessage;
+    END CATCH;
+END;
+
+                        
+     }
+ 
+ 

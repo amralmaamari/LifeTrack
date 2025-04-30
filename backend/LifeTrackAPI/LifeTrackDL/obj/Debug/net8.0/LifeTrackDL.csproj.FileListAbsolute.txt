@@ -1,0 +1,12 @@
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.csproj.AssemblyReference.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.AssemblyInfoInputs.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.AssemblyInfo.cs
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.csproj.CoreCompileInputs.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\bin\Debug\net8.0\LifeTrackDL.deps.json
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\bin\Debug\net8.0\LifeTrackDL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\bin\Debug\net8.0\LifeTrackDL.pdb
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\refint\LifeTrackDL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\LifeTrackDL.pdb
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackDL\obj\Debug\net8.0\ref\LifeTrackDL.dll

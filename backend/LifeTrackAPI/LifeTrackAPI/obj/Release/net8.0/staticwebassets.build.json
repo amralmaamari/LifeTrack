@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "hMu+f2qvuRnx1Z2XQhBlVArNAojLvuxgKo0PTRiiBjg=",
+  "Source": "LifeTrackAPI",
+  "BasePath": "_content/LifeTrackAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

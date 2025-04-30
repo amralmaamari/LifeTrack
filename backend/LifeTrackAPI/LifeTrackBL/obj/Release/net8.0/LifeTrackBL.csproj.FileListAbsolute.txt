@@ -1,0 +1,15 @@
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\bin\Release\net8.0\LifeTrackBL.deps.json
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\bin\Release\net8.0\LifeTrackBL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\bin\Release\net8.0\LifeTrackBL.pdb
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\bin\Release\net8.0\LifeTrackDL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\bin\Release\net8.0\LifeTrackDL.pdb
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.csproj.AssemblyReference.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.AssemblyInfoInputs.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.AssemblyInfo.cs
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.csproj.CoreCompileInputs.cache
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrac.6371A741.Up2Date
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\refint\LifeTrackBL.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\LifeTrackBL.pdb
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackBL\obj\Release\net8.0\ref\LifeTrackBL.dll

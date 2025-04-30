@@ -1,0 +1,15 @@
+
+                GO
+              CREATE FUNCTION SF_GetAllChallenges()
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT * FROM Challenges
+);
+
+
+             
+     }
+  
+ 
