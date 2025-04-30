@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-  "build": "next build",
-  "postinstall": "npm rebuild lightningcss --update-binary",
-  "start": "next start",
-  "lint": "next lint"
-
+    "build": "next build",
+    "postinstall": "npm rebuild lightningcss --update-binary",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -52,6 +51,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@netlify/plugin-nextjs": "^5.10.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
