@@ -84,3 +84,4 @@ D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Release\net8.0\refint\Li
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Release\net8.0\LifeTrackAPI.pdb
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Release\net8.0\LifeTrackAPI.genruntimeconfig.cache
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Release\net8.0\ref\LifeTrackAPI.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Release\net8.0\LifeTrackAPI.sourcelink.json
