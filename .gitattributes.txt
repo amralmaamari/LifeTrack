@@ -1,0 +1,7 @@
+# اجعل Git يتعامل مع نهاية السطر بشكل ثابت
+* text=auto
+
+# ملفات JavaScript و TypeScript و JSON تستخدم LF (نهاية سطر لينكس)
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
