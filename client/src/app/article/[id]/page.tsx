@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Loading from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import useFetch from "@/hooks/useFetch";
@@ -8,7 +8,9 @@ import { useParams } from "next/navigation";
 export default function Page() {
   const { id } = useParams();
   const { data, error, loading } = useFetch({ url: `/Article/${id}` });
-
+  
+  console.log(data);
+  
   if (loading || !data) {
     return (
      <Loading message="جاري تحميل المقالة..." />

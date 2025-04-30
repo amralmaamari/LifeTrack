@@ -4,7 +4,6 @@ import Loading from '@/components/Loading';
 import TaskAlertCompletion from '@/components/TaskAlertCompletion';
 import useFetch from '@/hooks/useFetch';
 import { useParams } from 'next/navigation';
-import { useRouter } from 'next/router';
 import React from 'react';
 
 export default function Page() {
@@ -22,7 +21,7 @@ export default function Page() {
 
   return (
     <div className="p-4">
-      {data && <TaskAlertCompletion
+       <TaskAlertCompletion
         taskID={data.taskId}
         alertID={data.alertId}
         isCompleted={data.isCompleted}
@@ -31,7 +30,7 @@ export default function Page() {
         note={data.notice}
         scoreMeasurement={data.scoreMeasurement}
         measurementID={data.measurementID}
-      /> }
+      /> 
       
     </div>
   );
