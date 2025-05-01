@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LifeTrackDL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd0c9b8bc80bd237e7db81313f9dec2c8f33e933")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b358bb2b00b8707b6bc7141e7deadaedd78e7a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("LifeTrackDL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LifeTrackDL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

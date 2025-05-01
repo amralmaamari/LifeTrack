@@ -30,9 +30,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Github\\BlogApp\\backend\\LifeTrackAPI\\LifeTrackAPI\\Program.cs",
               "RelativeDocumentMoniker": "LifeTrackAPI\\Program.cs",
-              "ToolTip": "D:\\Github\\BlogApp\\backend\\LifeTrackAPI\\LifeTrackAPI\\Program.cs",
-              "RelativeToolTip": "LifeTrackAPI\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAEgAAAAaAAAAAAAAAA==",
+              "ToolTip": "D:\\Github\\BlogApp\\backend\\LifeTrackAPI\\LifeTrackAPI\\Program.cs*",
+              "RelativeToolTip": "LifeTrackAPI\\Program.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwBMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T14:54:20.665Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "LifeTrackDL\\clsDataAccessSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T04:51:56.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T04:51:56.893Z"
             },
             {
               "$type": "Document",
