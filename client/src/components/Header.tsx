@@ -24,12 +24,12 @@ export default function Header() {
         </Link>
 
         {user ? (
-          <>
-            <span className="text-sm font-medium text-gray-700">👋 {user.fullName}</span>
+          <div className="flex flex-col items-end space-y-1">
+          <span className="text-sm font-medium text-gray-700">👋 {user.fullName}</span>
             <Button variant="destructive" onClick={logout}>
               Logout
             </Button>
-          </>
+          </div>
         ) : (
           <Link href="/login">
             <Button variant="outline">Login</Button>
