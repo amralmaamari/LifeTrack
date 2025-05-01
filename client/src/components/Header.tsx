@@ -19,8 +19,8 @@ export default function Header() {
         <Link href="/article">
           <Button variant="ghost">Articles</Button>
         </Link>
-        <Link href="/challenge">
-          <Button>Challenge</Button>
+           <Link href="/challenge">
+          <Button className="bg-gray-500 text-white hover:bg-gray-800">Challenge</Button>
         </Link>
 
         {user ? (
