@@ -7,7 +7,7 @@ export default function Header() {
   const { user, logout } = useAuth();
 
   return (
-    <header className="p-4 flex justify-between items-center shadow-sm bg-white">
+    <header className="p-4 flex flex-col gap-2 lg:flex-row lg:gap-0 justify-between items-center  shadow-sm bg-white">
       <h1 className="text-xl font-extrabold tracking-tight">
         NEWLIFE <span className="text-sm font-mono tracking-wide">Tracker</span>
       </h1>
@@ -24,7 +24,7 @@ export default function Header() {
         </Link>
 
         {user ? (
-          <div className="flex flex-col items-end space-y-1">
+          <div className="flex flex-col items-center space-y-2">
           <span className="text-sm font-medium text-gray-700">👋 {user.fullName}</span>
             <Button variant="destructive" onClick={logout}>
               Logout
