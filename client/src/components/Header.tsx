@@ -13,8 +13,8 @@ export default function Header() {
       </h1>
 
       <nav className="flex items-center space-x-2">
-        <Link href="/dashboard">
-          <Button variant="ghost">Dashboard</Button>
+        <Link href="/">
+          <Button variant="ghost">Home</Button>
         </Link>
         <Link href="/article">
           <Button variant="ghost">Articles</Button>

@@ -84,3 +84,4 @@ D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Debug\net8.0\LifeTrackAP
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Debug\net8.0\ref\LifeTrackAPI.dll
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Debug\net8.0\LifeTrackAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Github\BlogApp\backend\LifeTrackAPI\LifeTrackAPI\obj\Debug\net8.0\LifeTrackAPI.sourcelink.json
