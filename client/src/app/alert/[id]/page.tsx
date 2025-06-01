@@ -26,7 +26,8 @@ export default function Page() {
 const task = data as IAlertDetails;
 
  console.log("from task: " + JSON.stringify(task, null, 2));
-
+if(error) {
+  console.error("Error fetching alert details:", error);
   
 
   if (loading || !data) {
