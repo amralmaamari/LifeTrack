@@ -41,8 +41,7 @@ export default function Home() {
     fetchStats();
   }, [apiUrl, userId]);
 
-  if (loading) return <Loading message="جاري تحميل الإحصائيات..." />;
-  if (error) return <p className="text-red-600 text-center mt-4">{error}</p>;
+
 
   return (
     <>
