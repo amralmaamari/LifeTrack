@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LifeTrackAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8b3d80c093b5481452ab240b064c992cbdf948f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b92bae5be3214dbbb097e35bc5b22f570c04f049")]
 [assembly: System.Reflection.AssemblyProductAttribute("LifeTrackAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LifeTrackAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
