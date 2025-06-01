@@ -25,7 +25,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ title, description, content, id }) 
             <Link href={`/article/${id}`}>
               <Button variant="outline">View</Button>
             </Link>
-            <Link href={`/article/edit?id=${id}`}>
+            <Link href={`/article/${id}/edit`}>
             <Button>Edit</Button>
             </Link>
           </div>

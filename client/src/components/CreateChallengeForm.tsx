@@ -28,7 +28,7 @@ import toast from "react-hot-toast";
 // }
 
 interface Measurement {
-  measurementID: number;
+  measurementId: number;
   title: string;
 }
 
@@ -55,13 +55,13 @@ export default function CreateChallengeForm() {
     data: articles, // مختصر وواضح
     error: articlesError, // لتحديد نوع الخطأ
     loading: isLoadingArticles, // أفضل توصيف للبوول
-  } = useFetch({ url: `/Article/getArticles` });
+  } = useFetch({ url: `/Article` });
 
   const {
     data: measurements, // مختصر وواضح
     error: measurementsError, // لتحديد نوع الخطأ
     loading: isLoadingMeasurements, // أفضل توصيف للبوول
-  } = useFetch({ url: `/Measurement/getMeasurements` });
+  } = useFetch({ url: `/Measurement` });
 
   useEffect(() => {
     setReminderTimes((prev) => {
@@ -109,13 +109,13 @@ export default function CreateChallengeForm() {
 
     const payload = {
       UserID: 1, // ثابت حالياً
-      ArticleID: parseInt(selectedArticle),
+      ArticleId: parseInt(selectedArticle),
       Title: title,
       Description: description,
       StartDate: startDate,
       EndDate: endDate,
       DurationTimes: hours * 60 + minutes,
-      MeasurementID: parseInt(selectedMeasurement),
+      MeasurementId: parseInt(selectedMeasurement),
       TimesPerDay: timesPerDay,
       Alerts: reminderTimes,
     };
@@ -143,7 +143,7 @@ export default function CreateChallengeForm() {
         toast.success("✅ تم إنشاء التحدي!");
         console.log(response);
         
-        router.push(`/challenge/edit?id=${response.data.data.challengeID}`);
+        router.push(`/challenge/edit?id=${response.data.data.challengeId}`);
       }
 
     } catch (error) {
@@ -195,8 +195,8 @@ export default function CreateChallengeForm() {
           {Array.isArray(articles) &&
             articles.map((article) => (
               <SelectItem
-                key={article.articleID}
-                value={article.articleID.toString()}
+                key={article.articleId}
+                value={article.articleId.toString()}
               >
                 {article.title}
               </SelectItem>
@@ -285,8 +285,8 @@ export default function CreateChallengeForm() {
             Array.isArray(measurements) &&
             measurements.map((measure: Measurement) => (
               <SelectItem
-                key={measure.measurementID}
-                value={measure.measurementID.toString()}
+                key={measure.measurementId}
+                value={measure.measurementId.toString()}
               >
                 {measure.title}
               </SelectItem>

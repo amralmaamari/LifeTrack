@@ -1,5 +1,4 @@
 "use client";
-// ✅ Dynamic Task Alert Completion Component with Measurement Handling
 
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
@@ -18,12 +17,12 @@ interface TaskAlertCompletionProps {
   isCompleted: boolean;
   title: string;
   description: string;
-  measurementID: number;
+  measurementId: number;
   note?: string;
   scoreMeasurement?: string;
 }
 
-const measurementOptions = {
+const measurementOptions: Record<number, string> = {
   1: "Number",
   2: "Time (minutes)",
   3: "Text",
@@ -36,11 +35,11 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
   taskID,
   alertID,
   isCompleted,
+  measurementId,
+  scoreMeasurement: initialScore = "",
+  note: initialNote = "",
   title,
   description,
-  measurementID,
-  note: initialNote = "",
-  scoreMeasurement: initialScore = ""
 }) => {
   const router = useRouter();
   const [note, setNote] = useState(initialNote);
@@ -49,34 +48,32 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
   const [isReadOnly, setIsReadOnly] = useState(isCompleted);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleClose=()=>{
+  console.log("From TaskAlert " + measurementId);
+  
+  const handleClose = () => {
     router.push(`/challenge`);
-  }
+  };
+
   const handleSubmit = async () => {
-    if (!alertID || note.trim() === "" || score.trim() === "") {
+    if (!alertID || !note.trim() || !score.trim()) {
       toast.error("❌ الرجاء تعبئة كل الحقول المطلوبة.");
       return;
     }
-      try {
+    try {
       const response = await axios.put(`${apiUrl}/Alert/${alertID}`, {
-        AlertId:alertID,
+        AlertId: alertID,
         ScoreMeasurement: score,
-        Notice:note,
-        IsCompleted: completed,
+        Notice: note,
+        IsCompleted: completed
       }, {
-        headers: {
-          "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" }
       });
-      
 
-      
       if (response.data.success) {
         toast.success("✅ تم اضافة التقييم!");
         setIsReadOnly(true);
       }
-      
-      
+
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toast.error("❌ Axios Error: " + (error.response?.data || error.message));
@@ -87,7 +84,11 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
   };
 
   const renderInputByMeasurement = () => {
-    switch (measurementID) {
+    if (!measurementId || !measurementOptions[Number(measurementId)]) {
+      return <p className="text-red-500">⚠️ نوع التقييم غير معروف أو غير مدعوم.</p>;
+    }
+
+    switch (Number(measurementId)) {
       case 1:
         return <Input type="number" placeholder="أدخل رقمًا" value={score} onChange={(e) => setScore(e.target.value)} disabled={isReadOnly} />;
       case 2:
@@ -124,7 +125,7 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
   };
 
   return (
-    <div className="    flex items-center justify-center inset-0  bg-opacity-40 z-50 overflow-auto">
+    <div className="flex items-center justify-center inset-0 bg-opacity-40 z-50 overflow-auto">
       <div className="bg-white max-w-lg w-full rounded-xl shadow-xl overflow-hidden">
         <Card>
           <CardContent className="space-y-6 p-6" dir="rtl">
@@ -162,7 +163,9 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
                 </div>
 
                 <div>
-                  <label className="block mb-1 text-sm font-medium">📏 نوع التقييم: {measurementOptions[measurementID]}</label>
+                  <label className="block mb-1 text-sm font-medium">
+                    📏 نوع التقييم: {measurementOptions[Number(measurementId)] ?? "غير محدد"}
+                  </label>
                   {renderInputByMeasurement()}
                 </div>
               </div>

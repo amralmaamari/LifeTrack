@@ -1,9 +1,9 @@
 "use client"
+
 import CreateArticleForm from '@/components/CreateArticleForm'
 
 
 export default function Page() {
-  
   
 
   return (

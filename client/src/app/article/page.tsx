@@ -13,9 +13,10 @@ export default function Page() {
       data: articles,        // مختصر وواضح
       error: articlesError,  // لتحديد نوع الخطأ
       loading: isLoadingArticles // أفضل توصيف للبوول
-    } = useFetch({ url: `/Article/getArticles` });
+    } = useFetch({ url: `/Article` });
 
-
+    console.log(articles);
+    
      if (isLoadingArticles || !articles) {
         return (
          <Loading message="جاري تحميل المهمة..." />
@@ -27,9 +28,10 @@ export default function Page() {
     {!isLoadingArticles && articlesError && <h2>{articlesError}</h2>}
     {!articlesError && articles &&
     articles.map((article) => (
+      
       <ArticleCard
-            key={article.articleID}
-            id={article.articleID}
+            key={article.articleId}
+            id={article.articleId}
             title={article.title}
             content={article.description}
           />
@@ -40,7 +42,7 @@ export default function Page() {
       </main>
 
       <div className="fixed bottom-6 right-6 z-50 ">
-        <Link href="article/edit">
+        <Link href="article/new">
           <Button
             variant="default"
             size="icon"

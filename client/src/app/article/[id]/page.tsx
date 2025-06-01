@@ -25,7 +25,7 @@ export default function Page() {
           <div className="flex justify-between">
           <h1 className="text-2xl font-bold">{data.title}</h1>
 
-            <Link href={`/challenge/edit?id=${id}`}>
+            <Link href={`/challenge/new`}>
               <Button>انشاء مهام</Button>
             </Link>
           </div>

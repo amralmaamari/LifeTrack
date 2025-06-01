@@ -26,7 +26,7 @@ export default function Page() {
     data: challenges,        // مختصر وواضح
     error: challengesError,  // لتحديد نوع الخطأ
     loading: isLoadingChallenges // أفضل توصيف للبوول
-  } = useFetch({ url: `/Challenge/today-with-alerts` });
+  } = useFetch({ url: `/Challenge/today-article-tasks-alerts` });
 
   console.log("From Challenge " + JSON.stringify(challenges));
 
@@ -52,7 +52,7 @@ export default function Page() {
       </div>
 
       <div className="fixed bottom-6 right-6 z-50">
-        <Link href="challenge/edit">
+        <Link href="challenge/new">
           <Button
             variant="default"
             size="icon"

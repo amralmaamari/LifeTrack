@@ -6,14 +6,28 @@ import useFetch from '@/hooks/useFetch';
 import { useParams } from 'next/navigation';
 import React from 'react';
 
+export interface IAlertDetails {
+  alertId: number;
+  taskId: number;
+  measurementId: number;
+  scoreMeasurement: string;
+  notice: string;
+  dateAndTime: string; // ISO format, يمكن تحويله إلى Date عند الحاجة
+  isCompleted: boolean;
+  title: string;
+  description: string;
+}
+
 export default function Page() {
   const { id } = useParams();
-  const { data, error, loading } = useFetch({ url: `/Alert/${id}` });
+  const { data, error, loading } = useFetch({ url: `/Alert/${id}/details` });
 
-  console.log(data);
+
+const task = data as IAlertDetails;
+
+ console.log("from task: " + JSON.stringify(task, null, 2));
+
   
-
-
 
   if (loading || !data) {
     return <Loading message="جاري تحميل المنبّه..." />;
@@ -22,14 +36,14 @@ export default function Page() {
   return (
     <div className="p-4">
        <TaskAlertCompletion
-        taskID={data.taskId}
-        alertID={data.alertId}
-        isCompleted={data.isCompleted}
-        title={data.title}
-        description={data.description}
-        note={data.notice}
-        scoreMeasurement={data.scoreMeasurement}
-        measurementID={data.measurementID}
+        taskID={task.taskId}
+        alertID={task.alertId}
+        isCompleted={task.isCompleted}
+        title={task.title}
+        description={task.description}
+        note={task.notice}
+        scoreMeasurement={task.scoreMeasurement}
+        measurementId={task.measurementId}
       /> 
       
     </div>
