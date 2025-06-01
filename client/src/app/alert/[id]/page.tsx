@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Loading from '@/components/Loading';
 import TaskAlertCompletion from '@/components/TaskAlertCompletion';
@@ -12,30 +12,48 @@ export interface IAlertDetails {
   measurementId: number;
   scoreMeasurement: string;
   notice: string;
-  dateAndTime: string; // ISO format, يمكن تحويله إلى Date عند الحاجة
+  dateAndTime: string;
   isCompleted: boolean;
   title: string;
   description: string;
+}
+
+// دالة للتحقق من صحة البيانات
+function isValidAlertDetails(obj: any): obj is IAlertDetails {
+  return (
+    obj &&
+    typeof obj === 'object' &&
+    'alertId' in obj &&
+    'taskId' in obj &&
+    'measurementId' in obj &&
+    'scoreMeasurement' in obj &&
+    'notice' in obj &&
+    'dateAndTime' in obj &&
+    'isCompleted' in obj &&
+    'title' in obj &&
+    'description' in obj
+  );
 }
 
 export default function Page() {
   const { id } = useParams();
   const { data, loading } = useFetch({ url: `/Alert/${id}/details` });
 
-
-const task = data as IAlertDetails;
-
- console.log("from task: " + JSON.stringify(task, null, 2));
-
-  
-
-  if (loading || !data) {
+  if (loading) {
     return <Loading message="جاري تحميل المنبّه..." />;
   }
 
+  if (!data || !isValidAlertDetails(data)) {
+    return <Loading message="لا توجد بيانات صحيحة للمنبّه" />;
+  }
+
+  const task = data as IAlertDetails;
+
+  console.log('from task:', JSON.stringify(task, null, 2));
+
   return (
     <div className="p-4">
-       <TaskAlertCompletion
+      <TaskAlertCompletion
         taskID={task.taskId}
         alertID={task.alertId}
         isCompleted={task.isCompleted}
@@ -44,8 +62,7 @@ const task = data as IAlertDetails;
         note={task.notice}
         scoreMeasurement={task.scoreMeasurement}
         measurementId={task.measurementId}
-      /> 
-      
+      />
     </div>
   );
 }
