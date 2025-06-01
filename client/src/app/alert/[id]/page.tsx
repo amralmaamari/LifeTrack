@@ -20,14 +20,13 @@ export interface IAlertDetails {
 
 export default function Page() {
   const { id } = useParams();
-  const { data, error, loading } = useFetch({ url: `/Alert/${id}/details` });
+  const { data, loading } = useFetch({ url: `/Alert/${id}/details` });
 
 
 const task = data as IAlertDetails;
 
  console.log("from task: " + JSON.stringify(task, null, 2));
-if(error) {
-  console.error("Error fetching alert details:", error);
+
   
 
   if (loading || !data) {
