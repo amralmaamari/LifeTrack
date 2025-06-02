@@ -28,7 +28,6 @@ export default function Page() {
     loading: isLoadingChallenges // أفضل توصيف للبوول
   } = useFetch({ url: `/Challenge/today-article-tasks-alerts` });
 
-  console.log("From Challenge " + JSON.stringify(challenges));
 
   
   if (isLoadingChallenges || !challenges) {

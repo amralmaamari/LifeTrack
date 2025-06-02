@@ -9,7 +9,6 @@ export default function Page() {
   const { id } = useParams();
   const { data, error, loading } = useFetch({ url: `/Article/${id}` });
   
-  console.log(data);
   
   if (loading || !data) {
     return (

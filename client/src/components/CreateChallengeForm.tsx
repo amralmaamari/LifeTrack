@@ -135,13 +135,12 @@ export default function CreateChallengeForm() {
         );
         toast.success("✅ تم تحديث التحدي!");
       } else {
-        response = await axios.post(`${apiUrl}/Challenge`, payload, {
+        response = await axios.post(`${apiUrl}/create-challenge-tasks-alerts`, payload, {
           headers: {
             "Content-Type": "application/json",
           },
         });
         toast.success("✅ تم إنشاء التحدي!");
-        console.log(response);
         
         router.push(`/challenge`);
       }

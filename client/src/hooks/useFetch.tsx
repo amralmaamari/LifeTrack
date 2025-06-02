@@ -27,7 +27,6 @@ const useFetch = ({ url }: IUseFetch) => {
         if (!apiUrl) {
           throw new Error("API URL is not defined");
         }
-        console.log(`${apiUrl}${url}`);
         
         const res = await axios.get(`${apiUrl}${url}`);
         if(res.data.success){

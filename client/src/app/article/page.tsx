@@ -15,7 +15,6 @@ export default function Page() {
       loading: isLoadingArticles // أفضل توصيف للبوول
     } = useFetch({ url: `/Article` });
 
-    console.log(articles);
     
      if (isLoadingArticles || !articles) {
         return (

@@ -48,7 +48,6 @@ const TaskAlertCompletion: React.FC<TaskAlertCompletionProps> = ({
   const [isReadOnly, setIsReadOnly] = useState(isCompleted);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  console.log("From TaskAlert " + measurementId);
   
   const handleClose = () => {
     router.push(`/challenge`);
