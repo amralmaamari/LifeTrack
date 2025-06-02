@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Label } from "@radix-ui/react-label";
 import useFetch from "@/hooks/useFetch";
@@ -32,11 +31,9 @@ interface Measurement {
   title: string;
 }
 
+// here will use for create only and if u want to update use different thing lateron i will thing about it 
 export default function CreateChallengeForm() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const challengeId = searchParams.get("id");
-
   const today = new Date().toISOString().split("T")[0];
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState("");
@@ -71,21 +68,7 @@ export default function CreateChallengeForm() {
     });
   }, [timesPerDay]);
 
-  useEffect(() => {
-    if (challengeId) {
-      fetch(`/api/challenges/${challengeId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setTitle(data.title || "");
-          setDescription(data.description || "");
-          setStartDate(data.startDate?.split("T")[0] || today);
-          setEndDate(data.endDate?.split("T")[0] || "");
-          setHours(data.durationHours || 0);
-          setMinutes(data.durationMinutes || 0);
-          setTimesPerDay(data.timesPerDay || 1);
-        });
-    }
-  }, [challengeId]);
+
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -119,31 +102,25 @@ export default function CreateChallengeForm() {
       TimesPerDay: timesPerDay,
       Alerts: reminderTimes,
     };
+    
 
     try {
-      let response;
 
-      if (challengeId) {
-        response = await axios.put(
-          `${apiUrl}/Challenge/${challengeId}`,
-          payload,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        toast.success("✅ تم تحديث التحدي!");
-      } else {
-        response = await axios.post(`${apiUrl}/create-challenge-tasks-alerts`, payload, {
+      
+     
+       const response = await axios.post(`${apiUrl}/Challenge/create-challenge-tasks-alerts`, payload, {
           headers: {
             "Content-Type": "application/json",
           },
         });
+        if(!response.data || !response.data.success) {
+          toast.error("❌ فشل إنشاء التحدي. الرجاء المحاولة لاحقاً.");
+          return;
+        }
         toast.success("✅ تم إنشاء التحدي!");
         
         router.push(`/challenge`);
-      }
+      
 
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -165,7 +142,7 @@ export default function CreateChallengeForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 px-2">
       <h1 className="text-xl font-bold" dir="rtl">
-        {challengeId ? "تعديل التحدي" : "إنشاء تحدي"}
+            إنشاء تحدي      
       </h1>
 
       <Select
@@ -320,7 +297,7 @@ export default function CreateChallengeForm() {
         ))}
       </div>
 
-      <Button type="submit">{challengeId ? "تحديث" : "إنشاء"}</Button>
+      <Button type="submit">{"إنشاء"}</Button>
     </form>
   );
 }
