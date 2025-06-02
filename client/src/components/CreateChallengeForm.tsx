@@ -108,7 +108,7 @@ export default function CreateChallengeForm() {
     }
 
     const payload = {
-      UserID: 1, // ثابت حالياً
+      UserId: 1, // ثابت حالياً
       ArticleId: parseInt(selectedArticle),
       Title: title,
       Description: description,
@@ -143,7 +143,7 @@ export default function CreateChallengeForm() {
         toast.success("✅ تم إنشاء التحدي!");
         console.log(response);
         
-        router.push(`/challenge/edit?id=${response.data.data.challengeId}`);
+        router.push(`/challenge`);
       }
 
     } catch (error) {

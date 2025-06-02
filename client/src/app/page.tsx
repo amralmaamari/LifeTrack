@@ -25,6 +25,8 @@ export default function Home() {
           axios.get(`${apiUrl}/Alert/user/${userId}/today-count`)
         ]);
 
+        
+
         setChallengesToday(challengeRes.data.data);
         setAlertsToday(alertRes.data.data);
 
@@ -71,3 +73,5 @@ export default function Home() {
     </>
   );
 }
+
+
